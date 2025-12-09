@@ -1,0 +1,281 @@
+:root {
+  --panel: #ffffff;
+  --muted: #6b7280;
+  --accent: #0ea5e9;
+  --danger: #ef4444;
+}
+
+/* ---------- Base ---------- */
+* {
+  box-sizing: border-box;
+}
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Inter, Segoe UI, Roboto, Arial;
+  color: #0f172a;
+}
+body {
+  background:
+    radial-gradient(1200px 600px at 10% 10%, #e6f0ff 0%, transparent 20%),
+    radial-gradient(800px 400px at 90% 90%, #fff0f8 0%, transparent 20%),
+    linear-gradient(180deg, #f7fbff, #fefcf7);
+}
+
+/* ---------- Layout ---------- */
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: transparent;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: linear-gradient(45deg, var(--accent), #8b5cf6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+}
+.title {
+  font-weight: 700;
+  font-size: 16px;
+}
+.subtitle {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* ---------- Toolbar ---------- */
+.toolbar {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.tool-group {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.tool {
+  border: 0;
+  background: #fff;
+  padding: 8px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(2,6,23,0.06);
+  cursor: pointer;
+  transition: 0.2s;
+}
+.tool:hover {
+  background: #f1f5f9;
+  transform: translateY(-1px);
+}
+.tool.active {
+  background: linear-gradient(90deg, var(--accent), #6366f1);
+  color: white;
+}
+input[type="color"] {
+  width: 40px;
+  height: 36px;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+input[type="range"] {
+  width: 110px;
+}
+.btn {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 0;
+  background: #0f172a;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.btn:hover {
+  background: #334155;
+}
+.btn.danger {
+  background: var(--danger);
+}
+.btn.small {
+  font-size: 13px;
+  padding: 4px 8px;
+}
+
+/* ---------- Main ---------- */
+.main {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  flex: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+.sidebar {
+  width: 220px;
+  background: var(--panel);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 8px 30px rgba(15,23,42,0.06);
+}
+.canvas-area {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #fff, #f8fafc);
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 8px 30px rgba(2,6,23,0.04);
+}
+#canvas {
+  width: 100%;
+  height: calc(100vh - 220px);
+  border-radius: 8px;
+  background: white;
+  display: block;
+  touch-action: none;
+}
+
+/* ---------- Users ---------- */
+.users {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0 0;
+}
+.user-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+.user-item:hover {
+  background: #f9fafb;
+}
+.user-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+}
+
+/* ---------- Cursors ---------- */
+.cursor-layer {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  right: 10px;
+  bottom: 10px;
+  pointer-events: none;
+}
+.cursor {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 6px 18px rgba(2,6,23,0.08);
+  font-size: 12px;
+}
+.cursor .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.cursor .name {
+  font-size: 12px;
+  color: #333;
+  background: rgba(255,255,255,0.7);
+  border-radius: 4px;
+  padding: 1px 4px;
+  margin-left: 4px;
+}
+
+/* ---------- Metrics & badges ---------- */
+.tool-group.metrics {
+  display: flex;
+  align-items: center;
+}
+.badge {
+  background: #111827;
+  color: #f9fafb;
+  font-size: 13px;
+  border-radius: 6px;
+  padding: 4px 8px;
+  margin-left: 8px;
+  font-family: monospace;
+}
+
+/* ---------- Reactions ---------- */
+.reactions-panel {
+  margin-top: 12px;
+}
+.reaction-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.react {
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+.react:hover {
+  background: #e0f2fe;
+  transform: scale(1.1);
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  text-align: center;
+  padding: 12px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .main {
+    flex-direction: column;
+    padding: 8px;
+  }
+  .sidebar {
+    width: 100%;
+  }
+  #canvas {
+    height: 60vh;
+  }
+  .toolbar {
+    flex-wrap: wrap;
+  }
+  .tool-group.metrics {
+    display: none; /* hide FPS/RTT on very small screens */
+  }
+}

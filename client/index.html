@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FLAM Collaborative Canvas — Pro</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">✦</div>
+        <div>
+          <div class="title">FLAM Collaborative Canvas</div>
+          <div class="subtitle">Realtime whiteboard — pro demo</div>
+        </div>
+      </div>
+
+      <div class="toolbar">
+        <div class="tool-group">
+          <button id="pen" class="tool active" title="Pen">✎</button>
+          <button id="eraser" class="tool" title="Eraser">⎚</button>
+        </div>
+
+        <div class="tool-group">
+          <input id="color" type="color" value="#0ea5e9" title="Color" />
+          <input id="size" type="range" min="1" max="28" value="4" title="Size" />
+        </div>
+
+        <!-- NAME FIELD -->
+        <div class="tool-group">
+          <input id="nameInput" type="text" placeholder="Your name (optional)" title="Enter display name" style="width:150px;padding:6px;border-radius:8px;border:1px solid #eee" />
+        </div>
+
+        <div class="tool-group">
+          <button id="undo" class="btn">↶ Undo</button>
+          <button id="clear" class="btn danger">Clear</button>
+        </div>
+
+        <!-- Room + save/load + metrics -->
+        <div class="tool-group">
+          <input id="roomInput" type="text" placeholder="room id (default)" title="Room id" style="width:140px;padding:6px;border-radius:8px;border:1px solid #eee" />
+          <button id="joinRoomBtn" class="btn">Join</button>
+          <button id="saveSessionBtn" class="btn small">Save</button>
+          <button id="loadSessionBtn" class="btn small">Load</button>
+        </div>
+
+        <div class="tool-group metrics">
+          <span id="rttBadge" class="badge">RTT: -- ms</span>
+          <span id="fpsBadge" class="badge">FPS: --</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <aside class="sidebar">
+        <h4>Online</h4>
+        <ul id="usersList" class="users"></ul>
+        <hr />
+        <div class="instructions">
+          <strong>Quick tips</strong>
+          <ul>
+            <li>Set your name then open another device to test.</li>
+            <li>Colors auto-assigned to users.</li>
+            <li>Use Undo (your last stroke) or Clear (global).</li>
+          </ul>
+        </div>
+
+        <hr />
+
+        <!-- Reactions panel -->
+        <div class="reactions-panel">
+          <h4>Reactions</h4>
+          <div class="reaction-grid">
+            <button class="react" data-emoji="👍">👍</button>
+            <button class="react" data-emoji="❤️">❤️</button>
+            <button class="react" data-emoji="🎉">🎉</button>
+            <button class="react" data-emoji="💡">💡</button>
+          </div>
+        </div>
+      </aside>
+
+      <section class="canvas-area">
+        <div class="canvas-wrapper" style="position:relative;flex:1;">
+          <canvas id="canvas"></canvas>
+          <div id="cursor-layer" class="cursor-layer"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">Made for FLAM • BY RAJ 2025</footer>
+  </div>
+
+  <script src="/app.js" defer></script>
+</body>
+</html>
